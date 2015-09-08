@@ -25,9 +25,21 @@ class MachinesController < ApplicationController
   # POST /machines.json
   def create
     @machine = Machine.new(machine_params)
-
     respond_to do |format|
       if @machine.save
+        
+        #TO-DO
+        #Move this process to a backround job with delayed_job
+        #Repeated in the update method
+        client = Swiftype::Client.new(:api_key => ENV['SWIFTYPE_API'])
+        client.create_or_update_document(ENV['SWIFTYPE_SLUG'], ENV['SWIFTYPE_DOC'], {
+          :external_id => @machine.id,
+          :fields => [
+            {:name => 'title', :value => @machine.title, :type => 'string'},
+            {:name => 'url', :value => machine_url(@machine), :type => 'enum'},
+            {:name => 'create_at', :value => @machine.created_at.iso8601, :type => 'date'},
+          ]
+        })
         format.html { redirect_to @machine, notice: 'Machine was successfully created.' }
         format.json { render :show, status: :created, location: @machine }
       else
@@ -42,6 +54,20 @@ class MachinesController < ApplicationController
   def update
     respond_to do |format|
       if @machine.update(machine_params)
+        
+        #TO-DO
+        #Move this process to a background job with delayed_job
+        #Repeated in the create method
+        client = Swiftype::Client.new(:api_key => ENV['SWIFTYPE_API'])
+        client.create_or_update_document(ENV['SWIFTYPE_SLUG'], ENV['SWIFTYPE_DOC'], {
+          :external_id => @machine.id,
+          :fields => [
+            {:name => 'title', :value => @machine.title, :type => 'string'},
+            {:name => 'url', :value => machine_url(@machine), :type => 'enum'},
+            {:name => 'create_at', :value => @machine.created_at.iso8601, :type => 'date'},
+          ]
+        })
+        
         format.html { redirect_to @machine, notice: 'Machine was successfully updated.' }
         format.json { render :show, status: :ok, location: @machine }
       else
@@ -55,6 +81,11 @@ class MachinesController < ApplicationController
   # DELETE /machines/1.json
   def destroy
     @machine.destroy
+    #TO-DO
+    #Move this process to a background job with delayed_job
+    #Repeated in the create method
+    client = Swiftype::Client.new(:api_key => ENV['SWIFTYPE_API'])
+    client.destroy_document(ENV['SWIFTYPE_SLUG'], ENV['SWIFTYPE_DOC'], @machine.id)
     respond_to do |format|
       format.html { redirect_to machines_url, notice: 'Machine was successfully destroyed.' }
       format.json { head :no_content }
