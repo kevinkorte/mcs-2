@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  root 'static#home'
+  
   resources :model_names
   resources :makes
   resources :years
