@@ -2,7 +2,7 @@
 <div class="hero">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col-md-6 col-md-offset-3 search search-home">
         <form class="hero-search">
           <input type='text' id='st-search-input' class='st-search-input'/>
         </form>
@@ -16,9 +16,17 @@
 
 
 <script>
-    $(function() {
-  $('#st-search-input').swiftype({
-    engineKey: 'zPa_Vda99xFc8rsXF3tJ'
-  });
+  $(function() {
+    $('#st-search-input').swiftype({
+      renderFunction: customRenderFunction,
+      engineKey: 'zPa_Vda99xFc8rsXF3tJ'
+    });
+    
+    
+    var customRenderFunction = function(document_type, item) {
+    return '<p class="title">' + item['title'] + '</p>';
+};
+
+
 });
 </script>

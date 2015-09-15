@@ -1,10 +1,22 @@
-.hero {
-    background: #444;
+.search-home {
+    padding: 2px 7px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    & input {
+        width: 100%;
+        border: none;
+        outline: none;
+    }
 }
 
-.hero-search {
-    padding: 7em 0;
+.hero {
+  height: 551px;
+  /* Rectangle 1: */
+background-image: radial-gradient(50% 100%, #48494D 0%, #26272D 100%);
 }
-.st-search-input {
-    width: 100%;
-}
+
+/*************************************************
+
+SWIFTYPE CSS
+
+*************************************************/
