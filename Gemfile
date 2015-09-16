@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'swiftype'
+gem 'devise'
 
 gem 'bootstrap-sass', '~> 3.3.5'
 

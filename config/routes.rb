@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
-  root 'static#home'
+  devise_for :users
+  root to: 'static#home'
   
   resources :model_names
   resources :makes
