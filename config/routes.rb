@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+  devise_for  :users,
+              :path => '',
+              :path_names => {:sign_in => 'sign-in', :sign_out => 'sign-out', :sign_up => 'register' },
+              controllers: { sessions: "users/sessions", registrations: "users/registrations" }
+  #Custom routes used by devise
+  #http://stackoverflow.com/questions/3827011/devise-custom-routes-and-login-pages
   root to: 'static#home'
   
   resources :model_names

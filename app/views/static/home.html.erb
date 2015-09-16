@@ -1,30 +1,20 @@
 
-<div class="hero">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3 search search-home">
-        <form class="hero-search">
-          <input type='text' id='st-search-input' class='st-search-input'/>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
 
-
+<form class="hero-search">
+  <input type='text' id='st-search-input' class='st-search-input'/>
+</form>
 
 
 
 <script>
   $(function() {
     $('#st-search-input').swiftype({
-      renderFunction: customRenderFunction,
       engineKey: 'zPa_Vda99xFc8rsXF3tJ'
     });
     
     
     var customRenderFunction = function(document_type, item) {
-    return '<p class="title">' + item['title'] + '</p>';
+    return '<p class="machine">' + item['title'] + '</p>';
 };
 
 
