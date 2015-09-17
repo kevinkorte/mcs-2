@@ -6,6 +6,12 @@ Rails.application.routes.draw do
               controllers: { sessions: "users/sessions", registrations: "users/registrations" }
   #Custom routes used by devise
   #http://stackoverflow.com/questions/3827011/devise-custom-routes-and-login-pages
+  
+  #If the user is logged in
+  authenticated :user do
+    root to: 'dashboard#show', as: 'authenticated_root'
+  end
+  
   root to: 'static#home'
   
   resources :model_names
