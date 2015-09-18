@@ -1,11 +1,36 @@
-.autocomplete ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background: red;
-   border: 1px solid black;
+
+
+.st-search-input {
+  outline: none;
+  &:active, &:focus {
+    box-shadow: none;
+  }
 }
 
-#st-search-input {
-  outline: none;
+.autocomplete ul {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.autocomplete li {
+  margin: 0;
+  padding: 7px 9px;
+  background: #f9fafa;
+  border-bottom: 1px solid #edeff0;
+  
+  &:hover {
+    background: #fff;
+    cursor: pointer;
+  }
+  &:first-child {
+    border-radius: 4px 4px 0 0;
+  }
+  &:last-child {
+    border-radius: 0 0 4px 4px;
+    border-bottom: none;
+  }
 }
