@@ -4,6 +4,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 gem 'swiftype'
 gem 'devise'
 gem 'simple_form'
+gem 'unsplash'
 
 gem 'bootstrap-sass', '~> 3.3.5'
 
