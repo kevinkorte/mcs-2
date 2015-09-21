@@ -12,12 +12,20 @@ Rails.application.routes.draw do
     root to: 'dashboard#show', as: 'authenticated_root'
   end
   
+  namespace 'admin' do
+    resources :machines
+  end
+  
   root to: 'static#home'
   
   resources :model_names
   resources :makes
   resources :years
   resources :machines
+  
+  
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
