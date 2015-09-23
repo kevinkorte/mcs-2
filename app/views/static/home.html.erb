@@ -3,7 +3,7 @@
 <div class ="splash-hero">
 <div class="container">
  
- <nav class="navbar navbar-default">
+ <nav class="navbar navbar-default navbar-home">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -52,17 +52,9 @@
 <script>
   $(function() {
     $('#st-search-input').swiftype({
-      renderFunction: customRenderFunction,
       engineKey: 'zPa_Vda99xFc8rsXF3tJ'
     });
-    
-    
-    var customRenderFunction = function(document_type, item) {
-    return '<li class="list-group-item">' + item['title'] + '</li>';
-};
-
-
-});
+  });
 </script>
 
 <script>

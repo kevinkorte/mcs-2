@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require jquery.swiftype.autocomplete
 //= require typed.min
 //= require_tree .
